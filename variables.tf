@@ -1,4 +1,18 @@
 ##01- Network
+variable "region" {
+  default = "eu-central-1"
+}
+
+variable "account_id" {
+  description = "ID of the newly provisioned account for resource deployment"
+  type        = string
+}
+
+variable "assume_role_name" {
+  description = "Name of the role to assume in the new account for admin privileges"
+  default     = "AWSControlTowerExecution"
+}
+
 variable "cluster_name" {
   default = "igel-large"
 }
@@ -42,6 +56,11 @@ variable "create_public_ip" {
   default = false
 }
 
+##04-ec2
+variable "role_ec2" {
+  default = "worker"
+}
+
 ##05-aurora
 variable "role_aurora" {
   default = "db"
@@ -67,7 +86,7 @@ variable "database_name" {
   default = "umsdb"
 }
 
-variable "instance_type" {
+variable "aurora_instance_type" {
   default = "db.t3.medium"
 }
 
