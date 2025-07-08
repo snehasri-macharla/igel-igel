@@ -3,15 +3,22 @@ variable "region" {
   default = "eu-central-1"
 }
 
-variable "account_id" {
-  description = "ID of the newly provisioned account for resource deployment"
-  type        = string
-}
+# variable "access_key" {
+#   description = "My AWS access key"
+# }
+# variable "secret_key" {
+#   description = "My AWS secret key"
+# }
 
-variable "assume_role_name" {
-  description = "Name of the role to assume in the new account for admin privileges"
-  default     = "AWSControlTowerExecution"
-}
+# variable "account_id" {
+#   description = "ID of the newly provisioned account for resource deployment"
+#   type        = string
+# }
+
+# variable "assume_role_name" {
+#   description = "Name of the role to assume in the new account for admin privileges"
+#   default     = "AWSControlTowerExecution"
+# }
 
 variable "cluster_name" {
   default = "igel-large"

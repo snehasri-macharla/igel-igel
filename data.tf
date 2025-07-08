@@ -1,4 +1,3 @@
-##04-ec2
 data "aws_vpc" "vpc" {
   tags = {
     Name = "${var.cluster_name}-${var.cluster_env}"
@@ -42,7 +41,6 @@ data "aws_security_group" "bastion_security_group" {
   }
 }
 
-##06-alb
 data "aws_security_group" "worker_security_group" {
   filter {
     name   = "tag:Name"
