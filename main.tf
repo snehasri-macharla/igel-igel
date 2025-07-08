@@ -1,18 +1,18 @@
 provider "aws" {
-  region = var.region
+  profile = "default"
+  region  = "us-west-2"
 
-  assume_role {
-    role_arn = "arn:aws:iam::${var.account_id}:role/${var.assume_role_name}"
-    #role_arn     = "arn:aws:iam::931887310203:role/AWSControlTowerExecution"
-    session_name = "terraform"
-  }
+  # assume_role {
+  #   role_arn     = "arn:aws:iam::${var.account_id}:role/${var.assume_role_name}"
+  #   session_name = "terraform"
+  # }
 }
 
 terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.0"
+      version = "5.81.0"
     }
   }
 }
@@ -48,6 +48,7 @@ module "ec2-bastion" {
   instance_type    = var.instance_type
   create_public_ip = var.create_public_ip
 }
+
 
 ##04-ec2
 module "ec2-az1" {
@@ -88,13 +89,14 @@ module "aurora" {
   master_user       = var.master_user
   master_password   = var.master_password
   database_name     = var.database_name
-  instance_type     = var.aurora_instance_type
+  instance_type     = var.instance_type
   db_instance_count = var.db_instance_count
 }
 
 ##06-alb
 module "alb" {
-  source             = "./modules/alb"
+  source = "./modules/alb"
+
   cluster_name       = var.cluster_name
   cluster_env        = var.cluster_env
   role               = var.role_alb

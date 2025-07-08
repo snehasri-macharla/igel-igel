@@ -1,4 +1,3 @@
-
 module "ec2-bastion" {
   source = "../ec2"
 
@@ -13,6 +12,6 @@ module "ec2-bastion" {
 }
 
 resource "aws_eip_association" "instance_eip_association" {
-  instance_id = module.ec2-bastion.instance_id
+  instance_id   = module.ec2-bastion.instance_id
   allocation_id = data.aws_eip.aws_eip_bastion.id
 }

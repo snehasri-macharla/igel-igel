@@ -1,4 +1,3 @@
-
 data "aws_vpc" "vpc" {
   tags = {
     Name = "${var.cluster_name}-${var.cluster_env}"

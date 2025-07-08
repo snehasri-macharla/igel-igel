@@ -1,4 +1,3 @@
-
 data "aws_vpc" "vpc" {
   tags = {
     Name = "${var.cluster_name}-${var.cluster_env}"
@@ -7,7 +6,7 @@ data "aws_vpc" "vpc" {
 
 data "aws_subnets" "private_subnets" {
   filter {
-    name = "vpc-id"
+    name   = "vpc-id"
     values = [data.aws_vpc.vpc.id]
   }
   tags = {

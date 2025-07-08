@@ -1,4 +1,3 @@
-
 resource "aws_security_group" "ec2_security_group" {
   name        = "${var.cluster_name}-${var.cluster_env}-${var.role_ec2}-security-group"
   description = "SSH and internal traffic"
